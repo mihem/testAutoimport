@@ -9,7 +9,9 @@
 #' @export
 plotFun <- function(df, x, y) {
     plot <-
-        ggplot(df, aes(x = x, y = y)) +
+        df |>
+        mutate(x = x * 2) |>
+        ggplot(aes(x = x, y = y)) +
         geom_point()
     return(plot)
 }
